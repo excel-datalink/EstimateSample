@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
         // 最大長未指定時のdefault値を変更 Heroku対応
-        Schema::defaultStringLength(191);
+//        Schema::defaultStringLength(191);
     }
 
     /**
