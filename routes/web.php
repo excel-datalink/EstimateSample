@@ -11,17 +11,9 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();
 
-Route::get('/', 'StaticPagesController@rootPage');
+Route::get('/', 'StaticPagesController@rootPage')->name('home');
 
 Route::post('customers/import_csv', 'CustomersController@import_csv')->name('customers.import_csv');
 Route::resource('customers', 'CustomersController');
@@ -34,3 +26,5 @@ Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@swit
 Route::resource('users','UsersController',['only'=>['show','destroy']]); //destroyを追記
 Route::get('users','UsersController@delete_confirm')->name('users.delete_confirm'); //警告画面に飛ばしたいため追記
 
+Route::get('downloads',   'DownloadsController@index')->name('downloads.index');
+Route::post('downloads2', 'DownloadsController@download2')->name('downloads.download2');

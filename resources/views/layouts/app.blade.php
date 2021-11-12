@@ -49,8 +49,19 @@
                  href="{{ route('products.index') }}">{{ __('Products') }}</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link {{ Request::is('downloads', 'downloads/*') ? 'active' : '' }}"
+                 href="{{ route('downloads.index') }}">{{ __('Download') }}</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link {{ Request::is('profiles', 'profiles/*') ? 'active' : '' }}"
                  href="{{ route('profiles.edit', ['profile'=> Auth::user()->id]) }}">{{ __('Settings') }}</a>
+            </li>
+          </ul>
+          @else
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('downloads', 'downloads/*') ? 'active' : '' }}"
+                 href="{{ route('downloads.index') }}">{{ __('Download') }}</a>
             </li>
           </ul>
         @endif
